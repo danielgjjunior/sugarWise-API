@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PMML version="4.2" xmlns="http://www.dmg.org/PMML-4_2">
+  <Header copyright="daniel">
+    <Application name="KNIME" version="4.7.1"/>
+  </Header>
+  <DataDictionary numberOfFields="8">
+    <DataField name="gender" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="age" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="hypertension" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="heart_disease" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="smoking_history" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="bmi" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="blood_glucose_level" optype="continuous" dataType="double">
+      <Interval closure="closedClosed" leftMargin="0.0" rightMargin="1.0"/>
+    </DataField>
+    <DataField name="diabetes" optype="categorical" dataType="string">
+      <Value value="0"/>
+      <Value value="1"/>
+    </DataField>
+  </DataDictionary>
+  <NeuralNetwork functionName="classification" algorithmName="RProp" activationFunction="logistic" normalizationMethod="none" width="0.0" numberOfLayers="2">
+    <MiningSchema>
+      <MiningField name="gender" invalidValueTreatment="asIs"/>
+      <MiningField name="age" invalidValueTreatment="asIs"/>
+      <MiningField name="hypertension" invalidValueTreatment="asIs"/>
+      <MiningField name="heart_disease" invalidValueTreatment="asIs"/>
+      <MiningField name="smoking_history" invalidValueTreatment="asIs"/>
+      <MiningField name="bmi" invalidValueTreatment="asIs"/>
+      <MiningField name="blood_glucose_level" invalidValueTreatment="asIs"/>
+      <MiningField name="diabetes" invalidValueTreatment="asIs" usageType="target"/>
+    </MiningSchema>
+    <NeuralInputs numberOfInputs="7">
+      <NeuralInput id="0,0">
+        <DerivedField optype="continuous" dataType="double">
+          <FieldRef field="gender"/>
+        </DerivedField>
+      </NeuralInput>
+      <NeuralInput id="0,1">
+        <DerivedField optype="continuous" dataType="double">
+          <FieldRef field="age"/>
+        </DerivedField>
+      </NeuralInput>
+      <NeuralInput id="0,2">
+        <DerivedField optype="continuous" dataType="double">
+          <FieldRef field="hypertension"/>
+        </DerivedField>
+      </NeuralInput>
+      <NeuralInput id="0,3">
+        <DerivedField optype="continuous" dataType="double">
+          <FieldRef field="heart_disease"/>
+        </DerivedField>
+      </NeuralInput>
+      <NeuralInput id="0,4">
+        <DerivedField optype="continuous" dataType="double">
+          <FieldRef field="smoking_history"/>
+        </DerivedField>
+      </NeuralInput>
+      <NeuralInput id="0,5">
+        <DerivedField optype="continuous" dataType="double">
+          <FieldRef field="bmi"/>
+        </DerivedField>
+      </NeuralInput>
+      <NeuralInput id="0,6">
+        <DerivedField optype="continuous" dataType="double">
+          <FieldRef field="blood_glucose_level"/>
+        </DerivedField>
+      </NeuralInput>
+    </NeuralInputs>
+    <NeuralLayer>
+      <Neuron id="1,0" bias="-0.5615098398955783">
+        <Con from="0,0" weight="0.6302818283307876"/>
+        <Con from="0,1" weight="-1.109319422036482"/>
+        <Con from="0,2" weight="-0.7616615260192295"/>
+        <Con from="0,3" weight="-0.8485185433639362"/>
+        <Con from="0,4" weight="0.5233516067749145"/>
+        <Con from="0,5" weight="-2.0763007198644505"/>
+        <Con from="0,6" weight="-2.0001106369122956"/>
+      </Neuron>
+      <Neuron id="1,1" bias="-0.9814163426604545">
+        <Con from="0,0" weight="0.3110210770289244"/>
+        <Con from="0,1" weight="0.960181742518332"/>
+        <Con from="0,2" weight="-0.6314316687989523"/>
+        <Con from="0,3" weight="-1.0707646328891178"/>
+        <Con from="0,4" weight="-0.6881112911447382"/>
+        <Con from="0,5" weight="-1.5660742343278038"/>
+        <Con from="0,6" weight="2.1311420295943"/>
+      </Neuron>
+      <Neuron id="1,2" bias="0.010775770089535347">
+        <Con from="0,0" weight="-1.1124042322411727"/>
+        <Con from="0,1" weight="-1.0828981386167431"/>
+        <Con from="0,2" weight="-1.6023456436799306"/>
+        <Con from="0,3" weight="-0.08844981009527894"/>
+        <Con from="0,4" weight="0.6286944933828251"/>
+        <Con from="0,5" weight="-1.548104538740381"/>
+        <Con from="0,6" weight="-1.6509708410250223"/>
+      </Neuron>
+      <Neuron id="1,3" bias="-1.117594708340767">
+        <Con from="0,0" weight="-0.021197274958039088"/>
+        <Con from="0,1" weight="1.3601540124988518"/>
+        <Con from="0,2" weight="0.3018414456061337"/>
+        <Con from="0,3" weight="0.5951850937645013"/>
+        <Con from="0,4" weight="-1.1777971168582066"/>
+        <Con from="0,5" weight="4.539066477419531"/>
+        <Con from="0,6" weight="2.0870499726929794"/>
+      </Neuron>
+      <Neuron id="1,4" bias="0.1914659272241246">
+        <Con from="0,0" weight="0.7473519089047219"/>
+        <Con from="0,1" weight="-0.8403759854784354"/>
+        <Con from="0,2" weight="-0.43020385352920243"/>
+        <Con from="0,3" weight="-1.945737904092752"/>
+        <Con from="0,4" weight="-0.6130873154098178"/>
+        <Con from="0,5" weight="-0.21038402359295272"/>
+        <Con from="0,6" weight="-2.0827687799315577"/>
+      </Neuron>
+      <Neuron id="1,5" bias="1.376797564982109">
+        <Con from="0,0" weight="0.4372197073333156"/>
+        <Con from="0,1" weight="-0.21600921306116133"/>
+        <Con from="0,2" weight="-0.40466006042301517"/>
+        <Con from="0,3" weight="-1.3492123663863036"/>
+        <Con from="0,4" weight="-0.38253668389544443"/>
+        <Con from="0,5" weight="-2.001844572392351"/>
+        <Con from="0,6" weight="-2.174491899580669"/>
+      </Neuron>
+      <Neuron id="1,6" bias="-0.025246202420820263">
+        <Con from="0,0" weight="0.9508350284150506"/>
+        <Con from="0,1" weight="-0.25675869986796634"/>
+        <Con from="0,2" weight="0.3171049555031566"/>
+        <Con from="0,3" weight="1.3337789935821527"/>
+        <Con from="0,4" weight="-0.06858961022120764"/>
+        <Con from="0,5" weight="-3.8383884270706408"/>
+        <Con from="0,6" weight="-1.594864377723736"/>
+      </Neuron>
+      <Neuron id="1,7" bias="2.0327246704667252">
+        <Con from="0,0" weight="0.018128244147741713"/>
+        <Con from="0,1" weight="-0.3730760263351107"/>
+        <Con from="0,2" weight="0.29078143119312205"/>
+        <Con from="0,3" weight="-0.29998785637554326"/>
+        <Con from="0,4" weight="0.048560345372946644"/>
+        <Con from="0,5" weight="-2.215212779721373"/>
+        <Con from="0,6" weight="-2.5077286515629713"/>
+      </Neuron>
+      <Neuron id="1,8" bias="3.036879085868852">
+        <Con from="0,0" weight="-0.0678326694833403"/>
+        <Con from="0,1" weight="-1.7435983558916772"/>
+        <Con from="0,2" weight="-0.07802738540566057"/>
+        <Con from="0,3" weight="0.09281931984801649"/>
+        <Con from="0,4" weight="0.24336464169443617"/>
+        <Con from="0,5" weight="-2.020770332638759"/>
+        <Con from="0,6" weight="-2.657811620906166"/>
+      </Neuron>
+      <Neuron id="1,9" bias="1.1910845128877194">
+        <Con from="0,0" weight="-0.576959950195469"/>
+        <Con from="0,1" weight="-1.7995693875107954"/>
+        <Con from="0,2" weight="-0.563586670583658"/>
+        <Con from="0,3" weight="5.7270120794411"/>
+        <Con from="0,4" weight="-2.9541183004578366"/>
+        <Con from="0,5" weight="0.5474232485954499"/>
+        <Con from="0,6" weight="-2.375986593023581"/>
+      </Neuron>
+    </NeuralLayer>
+    <NeuralLayer>
+      <Neuron id="2,0" bias="-0.8670712616523544">
+        <Con from="1,0" weight="0.7065253757117185"/>
+        <Con from="1,1" weight="-2.5533761381091447"/>
+        <Con from="1,2" weight="5.069985745641198"/>
+        <Con from="1,3" weight="-1.943455376534645"/>
+        <Con from="1,4" weight="0.5348978808015126"/>
+        <Con from="1,5" weight="7.0502669651402465"/>
+        <Con from="1,6" weight="0.8707552415815765"/>
+        <Con from="1,7" weight="0.025743345292098773"/>
+        <Con from="1,8" weight="2.2130642042271815"/>
+        <Con from="1,9" weight="0.3456305394283727"/>
+      </Neuron>
+      <Neuron id="2,1" bias="1.5466488373319827">
+        <Con from="1,0" weight="-2.2170558646928424"/>
+        <Con from="1,1" weight="0.41994387091620405"/>
+        <Con from="1,2" weight="-4.104466284499586"/>
+        <Con from="1,3" weight="2.53856673046548"/>
+        <Con from="1,4" weight="-3.153099040780985"/>
+        <Con from="1,5" weight="-2.3786225098319353"/>
+        <Con from="1,6" weight="-0.11575612134238901"/>
+        <Con from="1,7" weight="-2.5121598244481698"/>
+        <Con from="1,8" weight="-2.6812480549886097"/>
+        <Con from="1,9" weight="-0.6011580811329938"/>
+      </Neuron>
+    </NeuralLayer>
+    <NeuralOutputs numberOfOutputs="2">
+      <NeuralOutput outputNeuron="2,0">
+        <DerivedField optype="categorical" dataType="string">
+          <NormDiscrete field="diabetes" value="0"/>
+        </DerivedField>
+      </NeuralOutput>
+      <NeuralOutput outputNeuron="2,1">
+        <DerivedField optype="categorical" dataType="string">
+          <NormDiscrete field="diabetes" value="1"/>
+        </DerivedField>
+      </NeuralOutput>
+    </NeuralOutputs>
+  </NeuralNetwork>
+</PMML>
